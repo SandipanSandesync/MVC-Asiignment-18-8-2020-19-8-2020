@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MVCDemo.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product Details</h2>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Id</td>
+                <td>@Html.ActionLink(item.Name, "Details","Product",new {id=item.Id },null) </td>
+                <td>@item.Rate</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
